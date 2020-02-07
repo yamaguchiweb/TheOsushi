@@ -1,6 +1,6 @@
-### CSSのお寿司
+### ★CSSのお寿司
 お寿司をCSSで作成しました。過去にQiitaにも投稿しました。
 
-#### コードペンのデモ
+#### ★コードペンのデモ
 https://codepen.io/maruzou/pen/JeQVGm
 
