@@ -20,22 +20,26 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 
 /* main----------------------------*/
 .main_inner{
+  position: relative;
   margin: 0 auto;
-  padding: 50px 0;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+  padding: 100px 0 50px;
+  overflow: hidden;
+  text-align: left;
 }
 
 .sushi_list{
+  position: absolute;
+  top: 0;
+  left: 0;
   margin: 0 auto;
 }
 .sushi_list li{
   position: relative;
   display: inline-block;
-  margin: 0 5px 10px;
+  margin: 0 0 10px;
   width: 100px;
   height: 100px;
+  text-align: center;
 }
 
 /* 商品名 */
