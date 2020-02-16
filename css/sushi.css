@@ -3,39 +3,101 @@
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;font-style: normal;vertical-align: baseline;background: transparent;font-weight: inherit;}body {line-height: 1;-webkit-text-size-adjust: 100%;color: #333;}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}ul, ol, dl {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}a {margin: 0;padding: 0;font-size: 100%;vertical-align: baseline;background: transparent;}a:link img, a:visited img, a:active img, a:hover img{border: none;text-decoration: none;}ins {background-color: #ff9;color: #000;text-decoration: none;}mark {background-color: #ff9;color: #000;font-style: italic;font-weight: bold;}del {text-decoration: line-through;}abbr[title], dfn[title] {border-bottom: 1px dotted;cursor: help;}table {border-collapse: collapse;border-spacing: 0;}hr {display: block;height: 1px;border: 0;border-top: 1px solid #ccc;margin: 0;padding: 0;}input, select, textarea{vertical-align: middle;}img, canvas, iframe, video, svg {max-width: 100%;}.overflow-container {overflow-y: scroll;}
 
 /* common */
+body{
+    background: linear-gradient(to bottom, #ffebc9 0%,#ffffff 50%,#ffffff 100%) no-repeat;
+}
 /* header----------------------------*/
 .header_inner{
-  background: #69f;
 }
 .header_inner h1{
+  table-layout: auto;
   margin: 0 auto;
-  padding: 20px 0;
-  width: 100%;
-  max-width: 600px;
+  padding-top: 5px;
   text-align: center;
-  font-size: 1.25rem;
-  line-height: 1.2;
-  color: #fff;
+  letter-spacing: -.4em;
+}
+.header_inner h1 > span{
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 1px;
+  padding: 1.25rem 0;
+  width: 3.5rem;
+  height: 4.5rem;
+  background: rgb(1, 53, 118);
+  box-shadow: 0 -5px 0 0 rgb(215, 229, 244) inset;
+  border-bottom: solid 8px rgb(1, 53, 118);
+  vertical-align: middle;
+  letter-spacing: normal;
+  color: rgb(235, 241, 247);
+  font-weight: bold;
+  font-size: 1.75rem;
+  font-family: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN","Hiragino Mincho Pro",HGS明朝E,メイリオ,Meiryo,serif;
+}
+.header_inner h1 > span::before{
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -2px;
+  width: 10px;
+  height: 20px;
+  background: rgb(1, 53, 118);
+}
+.header_inner h1 > span:first-child::before{
+  left: 0px;
+  width: 16px;
+}
+.header_inner h1 > span::after{
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -2px;
+  width: 10px;
+  height: 20px;
+  background: rgb(1, 53, 118);
+}
+.header_inner h1 > span:last-child::after{
+  right: 0px;
+  width: 16px;
+}
+.header_inner h1 .maru span{
+  display: inline-block;
+  padding: 3px;
+  border-radius: 50%;
+  border: solid 2px rgb(186, 36, 13);
+  font-size: 1rem;
+  line-height: 1;
+  color: rgb(186, 36, 13);
+  vertical-align: top;
 }
 
 /* main----------------------------*/
 .main_inner{
+  position: relative;
   margin: 0 auto;
-  padding: 50px 0;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+  overflow: hidden;
+  text-align: left;
 }
 
 .sushi_list{
+  position: relative;
   margin: 0 auto;
+  height: 160px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 50%,
+  #cda65e 50%,#cda65e 55%, #000 55%,#000 55%, rgb(35, 6, 6) 82%, #cda65e 82%,#cba152 85%,#c79941 90%,#f0cb85 90.5%,#b88931 91%,#b58224 100%);
 }
 .sushi_list li{
-  position: relative;
+  position: absolute;
+  top: 20px;
+  left: 0;
   display: inline-block;
-  margin: 0 5px 10px;
-  width: 100px;
-  height: 100px;
+  margin: 0;
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  border-left: solid 5px rgba(255,255,255, 0);
+  border-right: solid 5px rgba(255,255,255, 0);
+  transition: all 0s ease;
 }
 
 /* 商品名 */
@@ -43,12 +105,27 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   position: absolute;
   top: 0;
   left: 0;
-  padding: 5px 7px;
+  padding: 5%;
   color: #fff;
-  background: #009;
+  background: #016701;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
   border-radius: 50% 50%;
   font-size: .6875rem;
+}
+
+.sushi_list li.tamago .name,
+.sushi_list li.kappa .name,
+.sushi_list li.tekka .name{
+  background: #211094;
+}
+.sushi_list li.ikura .name,
+.sushi_list li.ebi .name,
+.sushi_list li.purin .name{
+  background: #7c2721;
+}
+.sushi_list li.chutoro .name,
+.sushi_list li.kanburi .name{
+  background: #4b3d05;
 }
 
 /* 値札 */
@@ -56,12 +133,12 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 3px 5px;
+  padding: 3% 5%;
   min-width: 30%;
   background: #cbac73;
   background: linear-gradient(135deg, #cbac73 7%, #e2c48d 13%, #cbac73 13%, #cbac73 13%, #cbac73 26%, #e2c48d 38%, #cbac73 38%, #e2c48d 38%, #cbac73 38%, #e2c48d 60%, #cbac73 60%, #cbac73 60%, #e2c48d 75%, #cbac73 75%, #e2c48d 92%, #cbac73 92%);
   box-shadow: 0 -1px 0 0 #b48040 inset, 0 1px 1px 0 rgba(0,0,0,.3);
-  border-radius: 5px 5px 0 0;
+  border-radius: .2rem .2rem 0 0;
   font-size: .6875rem;
   font-weight: bold;
   color: #000;
@@ -79,7 +156,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   height: 40%;
   background: radial-gradient(ellipse at center, rgba(255,255,255,.35) 0%, rgba(255,255,255,.35) 32%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.05) 37%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%), linear-gradient(to right, #fff 0%, #e5e5e5 60%);
   border: solid 1px #fff;
-  box-shadow: 0 0 0 2px #3399ff inset, 0 2px 3px 0 rgba(0,0,0,.3);
+  box-shadow: 0 0 0 2px #3399ff inset, 0 2px 5px 0 rgba(0,0,0,.5);
   border-radius: 50% 50%;
   box-sizing: border-box;
 }
@@ -97,7 +174,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   background: #f7c718;
   background: radial-gradient(ellipse at center, rgba(255,255,255,.35) 0%, rgba(255,255,255,.35) 32%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.05) 37%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%), linear-gradient(to right, #fff 3%, #f7c718 30%, #f7c718 84%, #f2d67B 100%);
   border: solid 1px #fff;
-  box-shadow: 0 0 0 1px #f7c718 inset, 0 2px 3px 0 rgba(0,0,0,.3);
+  box-shadow: 0 0 0 1px #f7c718 inset, 0 2px 5px 0 rgba(0,0,0,.5);
   border-radius: 50% 50%;
   box-sizing: border-box;
 }
@@ -114,7 +191,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   background: #990000;
   background: radial-gradient(ellipse at center, rgba(255,255,255,.35) 0%, rgba(255,255,255,.35) 32%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.05) 37%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%), linear-gradient(145deg, #f2f2f2 0%, #990000 30%, #990000 64%, #c2ab57 64%, #c2ab57 65%, #990000 65%, #990000 70%, #c2ab57 70%, #c2ab57 71%, #990000 71%, #990000 100%);
   border: solid 1px #fff;
-  box-shadow: 0 0 0 1px #990000 inset, 0 2px 3px 0 rgba(0,0,0,.3);
+  box-shadow: 0 0 0 1px #990000 inset, 0 2px 5px 0 rgba(0,0,0,.5);
   border-radius: 50% 50%;
   box-sizing: border-box;
 }
