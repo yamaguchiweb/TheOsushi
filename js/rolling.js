@@ -23,17 +23,20 @@ var x; // お寿司個別のx座標
 
 var lists; // お寿司個別のliタグ郡
 
-// お寿司タグ生成メソッド
+
+// 初期お寿司タグ生成メソッド（引数swにはお寿司の幅を入れる）
 function sushis(sw) {
 
+  // お寿司の必要数を計算
   sushisLength = Math.ceil(window.innerWidth / sw);
 
-  // ランダムにお寿司配列を作成（あがり抜き）
+  // 必要な数だけお寿司を抽選、配列に入れていく（ひとまずあがりは抜く）
   for (var i = 0; i < sushisLength + 1; i++) {
     random = Math.floor(Math.random() * (menuArray.length - 1));
     sushisArray.push(menuArray[random]);
   }
 
+  // お寿司列の長さを設定
   sushisList[0].style.width = sushisLength * sw + "px";
 
   for (var i = 0; i < sushisArray.length; i++) {
@@ -79,23 +82,25 @@ function sushis(sw) {
 }
 
 
+// お寿司を動かすメソッド（引数swにはお寿司の幅を入れる）
 function sushisRolling(sw) {
 
   lists = sushisList[0].getElementsByTagName('li');
 
   for (var i = 0; i < lists.length; i++){
 
-    // お寿司の移動
+    // お皿を個別に1pxずつ左へ移動させる
     sushiPos01 = lists[i].getBoundingClientRect();
     x = sushiPos01.left;
     x -= 1;
     lists[i].style.left = x + "px";
   
-    // お寿司の追加
-    sushiPos02 = lists[0].getBoundingClientRect();
+    // 先頭のお皿が画面の左に隠れたら削除、列の最後に新しく一皿追加
+    sushiPos02 = lists[0].getBoundingClientRect(); // 先頭のお皿座標
     if (sushiPos02.left < -sw) {
       sushisList[0].removeChild(sushisList[0].firstElementChild);
 
+      // 追加するお寿司を抽選
       random = Math.floor(Math.random() * (menuArray.length));
 
       // お寿司のclass名付きliタグを生成;
@@ -143,4 +148,4 @@ function sushisRolling(sw) {
 sushis(130);
 
 // お寿司の回転
-setInterval('sushisRolling(130)' , 50);
+//setInterval('sushisRolling(130)' , 50);
