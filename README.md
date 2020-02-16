@@ -2,5 +2,6 @@
 お寿司をCSSで作成しました。
 
 #### ★コードペンのデモ
-https://codepen.io/maruzou/pen/JeQVGm
+回転寿司になりました！
+https://codepen.io/maruzou/pen/zYGqNVd
 
